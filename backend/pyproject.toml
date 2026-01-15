@@ -1,0 +1,66 @@
+[project]
+name = "nnit-ai-enterprise-backend"
+version = "1.0.0"
+description = "NNIT AI Enterprise Backend - FastAPI REST API"
+authors = [
+    {name = "Solomon Omomeje Ayodele", email = "contact@nnit.example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+
+dependencies = [
+    "fastapi>=0.109.1",
+    "uvicorn[standard]>=0.27.0",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.5.3",
+    "pydantic-settings>=2.1.0",
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "python-multipart>=0.0.18",
+    "aiofiles>=23.2.1",
+    "httpx>=0.26.0",
+    "supabase>=2.3.0",
+    "groq>=0.4.1",
+    "pillow>=10.3.0",
+    "ffmpeg-python>=0.2.0",
+    "slowapi>=0.1.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.4",
+    "pytest-asyncio>=0.23.3",
+    "pytest-cov>=4.1.0",
+    "black>=24.1.1",
+    "flake8>=7.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+asyncio_mode = "auto"
