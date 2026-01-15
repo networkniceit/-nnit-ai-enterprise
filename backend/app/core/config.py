@@ -24,7 +24,7 @@ class Settings(BaseSettings):
     HUGGINGFACE_API_KEY: str = ""
     
     # JWT
-    SECRET_KEY: str = "change-this-secret-key-in-production"
+    SECRET_KEY: str = ""  # REQUIRED: Set in .env file
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     

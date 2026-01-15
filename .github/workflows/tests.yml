@@ -9,6 +9,8 @@ on:
 jobs:
   backend-tests:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     defaults:
       run:
@@ -41,6 +43,8 @@ jobs:
 
   frontend-tests:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     defaults:
       run:
@@ -68,6 +72,8 @@ jobs:
 
   mobile-tests:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     defaults:
       run:

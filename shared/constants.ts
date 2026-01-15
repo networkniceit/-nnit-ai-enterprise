@@ -8,7 +8,7 @@ export const COMPANY = {
   shortName: 'NNIT',
   owner: 'Solomon Omomeje Ayodele',
   tagline: 'Professional AI Freelancer Platform (100% Free to Start)',
-  founded: '2026',
+  year: new Date().getFullYear().toString(),
 };
 
 export const BRANDING = {
