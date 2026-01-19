@@ -2,6 +2,34 @@
 
 🚀 **100% Free Forever** | 🤖 **AI-Powered Matching** | 🌍 **Global Community**
 
+---
+
+## ⚡ Quick Start Commands
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/networkniceit/-nnit-ai-enterprise.git
+
+# 2. Enter the directory (⚠️ Note the ./ prefix!)
+cd ./-nnit-ai-enterprise
+
+# 3. Switch to the feature branch
+git checkout copilot/complete-work-for-earnings
+
+# 4. Install dependencies
+npm install
+
+# 5. Start the platform
+npm start
+
+# 6. Open in browser
+# Visit http://localhost:3000
+```
+
+**Why `cd ./-nnit-ai-enterprise`?** The repository name starts with a hyphen, which bash interprets as a command option. The `./` prefix tells bash it's a directory name, not an option.
+
+---
+
 ## Overview
 
 NNIT AI Enterprise is a revolutionary freelancer platform that leverages artificial intelligence to connect talented freelancers with clients worldwide. Unlike traditional platforms, NNIT is completely free and uses AI to optimize every aspect of the freelancing experience.
