@@ -91,7 +91,7 @@ Authorization: Bearer <your-token>
 **Request Body:**
 ```json
 {
-  "currentPassword": "YourNewStrongPassword!",
+  "currentPassword": "YourOldPassword123!",
   "newPassword": "YourNewStrongPassword!"
 }
 ```
