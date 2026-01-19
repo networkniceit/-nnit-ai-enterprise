@@ -5,7 +5,11 @@ const rateLimit = require('express-rate-limit');
 const path = require('path');
 require('dotenv').config();
 
+const connectDB = require('./utils/db');
 const app = express();
+
+// Connect to database (optional - continues without it)
+connectDB();
 
 // Security middleware
 app.use(helmet());

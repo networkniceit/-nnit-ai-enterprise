@@ -472,8 +472,8 @@ style.textContent = `
 document.head.appendChild(style);
 
 // Close modal when clicking outside
-window.onclick = function(event) {
+window.addEventListener('click', function(event) {
     if (event.target.classList.contains('modal')) {
         event.target.style.display = 'none';
     }
-};
+});
