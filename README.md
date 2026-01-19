@@ -29,6 +29,8 @@ NNIT AI Enterprise is a revolutionary freelancer platform that leverages artific
 
 ## 🚀 Quick Start
 
+> **⚠️ Important**: Because this repository name starts with a hyphen (`-nnit-ai-enterprise`), you must use `cd ./-nnit-ai-enterprise` (with `./` prefix) instead of `cd -nnit-ai-enterprise` to change into the directory after cloning.
+
 ### Prerequisites
 - Node.js (v16 or higher)
 - npm or yarn
@@ -39,15 +41,22 @@ NNIT AI Enterprise is a revolutionary freelancer platform that leverages artific
 1. **Clone the repository**
    ```bash
    git clone https://github.com/networkniceit/-nnit-ai-enterprise.git
-   cd -nnit-ai-enterprise
+   cd ./-nnit-ai-enterprise
+   ```
+   
+   **Note**: The `./` before the directory name is required because the repository name starts with a hyphen.
+
+2. **Switch to the feature branch** (if the code is not yet merged to main)
+   ```bash
+   git checkout copilot/complete-work-for-earnings
    ```
 
-2. **Install dependencies**
+3. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **Configure environment variables**
+4. **Configure environment variables**
    ```bash
    cp .env.example .env
    ```
@@ -59,12 +68,12 @@ NNIT AI Enterprise is a revolutionary freelancer platform that leverages artific
    MONGODB_URI=mongodb://localhost:27017/nnit-ai-enterprise
    ```
 
-4. **Start the server**
+5. **Start the server**
    ```bash
    npm start
    ```
 
-5. **Access the platform**
+6. **Access the platform**
    Open your browser and visit: `http://localhost:3000`
 
 ### Development Mode
@@ -73,6 +82,32 @@ For development with auto-reload:
 ```bash
 npm run dev
 ```
+
+### Troubleshooting
+
+**Problem: `cd: -n: invalid option` error**
+
+If you get this error:
+```
+bash: cd: -n: invalid option
+cd: usage: cd [-L|[-P [-e]] [-@]] [dir]
+```
+
+**Solution**: Use `cd ./-nnit-ai-enterprise` instead of `cd -nnit-ai-enterprise`. The `./` prefix is required because the repository name starts with a hyphen, which would otherwise be interpreted as a command option.
+
+**Problem: `package.json` not found**
+
+If you get this error after cloning:
+```
+npm error enoent Could not read package.json
+```
+
+**Solution**: Make sure you've checked out the correct branch:
+```bash
+git checkout copilot/complete-work-for-earnings
+```
+
+The full platform code is in this branch. Once merged to main, this step won't be necessary.
 
 ## 📁 Project Structure
 

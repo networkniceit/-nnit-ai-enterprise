@@ -100,8 +100,10 @@ We love code contributions! Here's how to get started:
 1. **Clone the repository**
    ```bash
    git clone https://github.com/networkniceit/-nnit-ai-enterprise.git
-   cd -nnit-ai-enterprise
+   cd ./-nnit-ai-enterprise
    ```
+   
+   **Note**: The `./` before the directory name is required because the repository name starts with a hyphen.
 
 2. **Install dependencies**
    ```bash

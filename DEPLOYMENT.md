@@ -144,8 +144,10 @@ APP_URL=https://yourdomain.com
 5. **Clone Repository**
    ```bash
    git clone https://github.com/networkniceit/-nnit-ai-enterprise.git
-   cd -nnit-ai-enterprise
+   cd ./-nnit-ai-enterprise
    ```
+   
+   **Note**: The `./` before the directory name is required because the repository name starts with a hyphen.
 
 6. **Install Dependencies**
    ```bash
