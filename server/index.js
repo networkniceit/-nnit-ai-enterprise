@@ -15,12 +15,19 @@ connectDB();
 app.use(helmet());
 app.use(cors());
 
-// Rate limiting
-const limiter = rateLimit({
+// Rate limiting for API routes
+const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100 // limit each IP to 100 requests per windowMs
 });
-app.use('/api/', limiter);
+app.use('/api/', apiLimiter);
+
+// Rate limiting for static files and frontend (more generous)
+const staticLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 500 // Allow more requests for static assets
+});
+app.use(staticLimiter);
 
 // Body parsing middleware
 app.use(express.json());
