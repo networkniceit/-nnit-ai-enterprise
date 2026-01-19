@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NNIT AI Enterprise - AI-Powered Freelancer Platform</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-robot"></i>
+                <span>NNIT AI Enterprise</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+            </div>
+            <div class="nav-actions" id="navActions">
+                <button class="btn btn-outline" onclick="showLoginModal()">Login</button>
+                <button class="btn btn-primary" onclick="showRegisterModal()">Get Started</button>
+            </div>
+            <div class="nav-user" id="navUser" style="display: none;">
+                <button class="btn btn-primary" onclick="showDashboard()">Dashboard</button>
+                <button class="btn btn-outline" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">AI-Powered Freelancer Platform</h1>
+                <p class="hero-subtitle">Connect with opportunities that match your skills. Let AI help you succeed.</p>
+                <div class="hero-features">
+                    <div class="hero-feature">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Matching</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>100% Free</span>
+                    </div>
+                    <div class="hero-feature">
+                        <i class="fas fa-rocket"></i>
+                        <span>Fast Setup</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <button class="btn btn-large btn-primary" onclick="showRegisterModal()">Start Earning Today</button>
+                    <button class="btn btn-large btn-outline" onclick="scrollToSection('how-it-works')">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Powerful AI Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Smart Project Matching</h3>
+                    <p>Our AI analyzes your skills and experience to match you with the perfect projects.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>AI Proposal Generator</h3>
+                    <p>Generate professional, customized proposals in seconds with our AI assistant.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Skills Analysis</h3>
+                    <p>Get insights on in-demand skills and personalized learning recommendations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Smart Bid Suggestions</h3>
+                    <p>AI-powered pricing recommendations to maximize your chances of winning projects.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Platform</h3>
+                    <p>Enterprise-grade security to protect your data and transactions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Global Community</h3>
+                    <p>Connect with clients and freelancers from around the world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Create Your Profile</h3>
+                    <p>Sign up for free and showcase your skills and experience.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get AI-Matched</h3>
+                    <p>Our AI finds the best projects that match your expertise.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Submit Proposals</h3>
+                    <p>Use our AI proposal generator to create winning bids.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Start Earning</h3>
+                    <p>Get hired, complete projects, and build your reputation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Available Projects</h2>
+            <div class="projects-filter">
+                <select id="categoryFilter" onchange="filterProjects()">
+                    <option value="all">All Categories</option>
+                    <option value="web-development">Web Development</option>
+                    <option value="mobile-development">Mobile Development</option>
+                    <option value="design">Design</option>
+                    <option value="writing">Writing</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="data-science">Data Science</option>
+                </select>
+                <input type="text" id="searchInput" placeholder="Search projects..." onkeyup="filterProjects()">
+            </div>
+            <div id="projectsList" class="projects-grid">
+                <p class="text-center">Loading projects...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>NNIT AI Enterprise</h4>
+                    <p>AI-Powered Freelancer Platform</p>
+                    <p>100% Free Forever</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <a href="#features">Features</a>
+                    <a href="#projects">Browse Projects</a>
+                    <a href="#how-it-works">How It Works</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NNIT AI Enterprise. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login to Your Account</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <p class="modal-footer">Don't have an account? <a href="#" onclick="closeModal('loginModal'); showRegisterModal();">Sign up</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Create Your Account</h2>
+            <form id="registerForm" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="registerRole">I want to:</label>
+                    <select id="registerRole" required>
+                        <option value="both">Both hire and work</option>
+                        <option value="freelancer">Work as a freelancer</option>
+                        <option value="client">Hire freelancers</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+            </form>
+            <p class="modal-footer">Already have an account? <a href="#" onclick="closeModal('registerModal'); showLoginModal();">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Dashboard (Hidden by default) -->
+    <div id="dashboard" style="display: none;">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Welcome, <span id="userName"></span>!</h2>
+                <button class="btn btn-outline" onclick="hideDashboard()">Back to Home</button>
+            </div>
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3>Create Project</h3>
+                    <form id="createProjectForm" onsubmit="handleCreateProject(event)">
+                        <div class="form-group">
+                            <label>Project Title</label>
+                            <input type="text" id="projectTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="projectDescription" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select id="projectCategory" required>
+                                <option value="web-development">Web Development</option>
+                                <option value="mobile-development">Mobile Development</option>
+                                <option value="design">Design</option>
+                                <option value="writing">Writing</option>
+                                <option value="marketing">Marketing</option>
+                                <option value="data-science">Data Science</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Budget Min ($)</label>
+                                <input type="number" id="budgetMin" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Budget Max ($)</label>
+                                <input type="number" id="budgetMax" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Duration</label>
+                            <select id="projectDuration" required>
+                                <option value="less-than-week">Less than a week</option>
+                                <option value="1-2-weeks">1-2 weeks</option>
+                                <option value="2-4-weeks">2-4 weeks</option>
+                                <option value="1-3-months">1-3 months</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Post Project</button>
+                    </form>
+                </div>
+                <div class="dashboard-card">
+                    <h3>AI Features</h3>
+                    <button class="btn btn-block" onclick="getAIMatches()">
+                        <i class="fas fa-brain"></i> Get AI Project Matches
+                    </button>
+                    <button class="btn btn-block" onclick="generateAIProposal()">
+                        <i class="fas fa-file-alt"></i> Generate AI Proposal
+                    </button>
+                    <button class="btn btn-block" onclick="analyzeSkills()">
+                        <i class="fas fa-chart-line"></i> Analyze My Skills
+                    </button>
+                    <div id="aiResults" style="margin-top: 20px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
