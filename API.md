@@ -119,8 +119,8 @@ Change the password for the authenticated user.
 ```json
 {
   "currentPassword": "YourNewStrongPassword!",
-  "newPassword": "YourNewStrongPassword!",
-  "confirmPassword": "YourNewStrongPassword!"
+  "newPassword": "Scdspas@@4.!",
+  "confirmPassword": "Scdspas@@4.!"
 }
 ```
 
