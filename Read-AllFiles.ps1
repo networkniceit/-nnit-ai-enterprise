@@ -15,8 +15,7 @@ Write-Host ""
 # Get all files matching patterns
 $allFiles = Get-ChildItem -Path $Path -Recurse -File | 
     Where-Object { 
-        $_.FullName -notmatch '[\\/]\.git[\\/]' -and 
-        $_.Name -ne '.gitignore'
+        $_.FullName -notmatch '[\\/]\.git([\\/]|$)'
     } |
     Sort-Object FullName
 
@@ -70,18 +69,19 @@ if ($CreateIfMissing -and $RequiredFiles.Count -gt 0) {
             
             # Create directory if needed
             $directory = Split-Path -Path $fullPath -Parent
-            if (![string]::IsNullOrEmpty($directory) -and -not (Test-Path -Path $directory)) {
+            if ($directory -and -not (Test-Path -Path $directory)) {
                 New-Item -Path $directory -ItemType Directory -Force | Out-Null
             }
             
             # Create the file with template content based on extension
             $extension = [System.IO.Path]::GetExtension($requiredFile)
+            $nl = [Environment]::NewLine
             $defaultContent = switch ($extension) {
-                ".md" { "# $([System.IO.Path]::GetFileNameWithoutExtension($requiredFile))`n`nContent goes here.`n" }
-                ".txt" { "Content goes here.`n" }
-                ".json" { "{`n  `"description`": `"Auto-generated file`"`n}`n" }
-                ".ps1" { "# PowerShell script: $requiredFile`n`nWrite-Host 'Script content goes here'`n" }
-                default { "# Auto-generated file: $requiredFile`n" }
+                ".md" { "# $([System.IO.Path]::GetFileNameWithoutExtension($requiredFile))$nl${nl}Content goes here.$nl" }
+                ".txt" { "Content goes here.$nl" }
+                ".json" { "{$nl  `"description`": `"Auto-generated file`"$nl}$nl" }
+                ".ps1" { "# PowerShell script: $requiredFile$nl${nl}Write-Host 'Script content goes here'$nl" }
+                default { "# Auto-generated file: $requiredFile$nl" }
             }
             
             Set-Content -Path $fullPath -Value $defaultContent -Encoding UTF8
