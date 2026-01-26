@@ -4,7 +4,6 @@
 
 param(
     [string]$Path = ".",
-    [string[]]$FilePatterns = @("*.md", "*.txt", "*.ps1", "*.json", "*.yml", "*.yaml", "*.config"),
     [switch]$CreateIfMissing,
     [string[]]$RequiredFiles = @()
 )
@@ -29,7 +28,12 @@ else {
     Write-Host ""
     
     foreach ($file in $allFiles) {
-        $relativePath = $file.FullName.Replace((Get-Location).Path, "").TrimStart('\', '/')
+        try {
+            $relativePath = Resolve-Path -Path $file.FullName -Relative -ErrorAction Stop
+        }
+        catch {
+            $relativePath = $file.Name
+        }
         Write-Host "===================================" -ForegroundColor DarkCyan
         Write-Host "File: $relativePath" -ForegroundColor Yellow
         Write-Host "Size: $($file.Length) bytes" -ForegroundColor Gray
@@ -66,7 +70,7 @@ if ($CreateIfMissing -and $RequiredFiles.Count -gt 0) {
             
             # Create directory if needed
             $directory = Split-Path -Path $fullPath -Parent
-            if ($directory -and -not (Test-Path -Path $directory)) {
+            if (![string]::IsNullOrEmpty($directory) -and -not (Test-Path -Path $directory)) {
                 New-Item -Path $directory -ItemType Directory -Force | Out-Null
             }
             
